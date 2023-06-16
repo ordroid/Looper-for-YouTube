@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Looper for YouTube",
+  "description": "Loop a certain part of a YouTube video",
+  "version": "1.0",
+  "permissions": [
+	"tabs"
+  ],
+  "action": {
+    "default_popup": "form.html",
+    "default_icon": "Looper.png"
+  }
+}
