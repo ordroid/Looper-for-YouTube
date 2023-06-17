@@ -1,1 +1,1 @@
-You have to get a YouTube Player API key and insert it on script.js instead of 'window.apiKey'.
+You have to get a YouTube Data API key and insert it on script.js instead of 'window.apiKey'.
