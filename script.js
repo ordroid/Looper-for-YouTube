@@ -72,7 +72,7 @@ document.getElementById("timeForm").addEventListener("submit", function(event) {
 });
 
 function isValidTime(time) {
-  // Regular expression pattern for the format mm:ss
+  // Regular expression pattern for the format mm:ss or m:ss
   var pattern = /^[0-5]?[0-9]:[0-5][0-9]$/;
   return pattern.test(time);
 }
