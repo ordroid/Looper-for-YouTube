@@ -6,8 +6,15 @@
   "permissions": [
 	"tabs"
   ],
+  "host_permissions": [
+	"https://www.youtube.com/*"
+  ],
   "action": {
     "default_popup": "form.html",
     "default_icon": "Looper.png"
+  },
+  "icons": {
+	"48": "Looper48.png",
+	"128": "Looper128.png"
   }
 }

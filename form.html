@@ -4,7 +4,7 @@
 		<title>Please enter your times</title>
 			<style>
 				body {
-				  width: 180px;
+				  width: 185px;
 				  height: 200px;
 				} 
 				
@@ -23,27 +23,28 @@
 				}
 			</style>
 		</head>
-	<body>
+		<body>
 
-		<form id = "timeForm">
-			<h1>Start Time</h1>
-			<label for="startTime">Start Time (mm:ss):</label>
-			<input type="text" id="startTime" pattern="[0-9]{1,2}:[0-9]{1,2}" required>
+			<form id = "timeForm">
+				<h1>Start Time</h1>
+				<label for="startTime">Start Time (mm:ss):</label>
+				<input type="text" id="startTime" pattern="[0-9]{1,2}:[0-9]{1,2}" required>
 
-			<h1 class="endLabel">End Time</h1>
-			<label for="endTime">End Time (mm:ss):</label>
-			<input type="text" id="endTime" pattern="[0-9]{1,2}:[0-9]{1,2}" required>
+				<h1 class="endLabel">End Time</h1>
+				<label for="endTime">End Time (mm:ss):</label>
+				<input type="text" id="endTime" pattern="[0-9]{1,2}:[0-9]{1,2}" required>
+					
+				<div class="submit-button">
+					<button type="submit">Submit</button>
+				</div>
 				
-			<div class="submit-button">
-				<button type="submit">Submit</button>
-			</div>
+				<div class="reset-button">
+					<button type="reset">Reset</button>
+				</div>
+			</form>
 			
-			<div class="reset-button">
-				<button type="reset">Reset</button>
-			</div>
-		</form>
-		
-		<script src = "script.js"></script>
-				
-	</body>
+			<script src = "private.js"></script>
+			<script src = "script.js"></script>
+					
+		</body>
 	</html>
