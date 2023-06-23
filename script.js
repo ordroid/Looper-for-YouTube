@@ -94,17 +94,27 @@ function getVideoIdFromURL(url) {
 function validateTimeInVideo(data, endTime) {
 	var duration = data["items"][0]["contentDetails"]["duration"];
 	duration = duration.replace("PT","");
-	var parts = duration.split("M");
-	var minutes = parts[0];
-	var seconds = parts[1];
-	seconds = seconds.replace("S","");
+	var length;
 	
-	minutes = parseInt(minutes);
-	seconds = parseInt(seconds);
-	
-	console.log("Video duration: " + minutes + " minutes and " + seconds + " seconds");
-	
-	var length = minutes*60 + seconds;
+	if(duration.indexOf("M") == -1) {
+		var seconds = duration.replace("S","");
+		seconds = parseInt(seconds);
+		console.log("Video duration: " + seconds + " seconds");
+		length = seconds;
+	} 
+	else {
+		var parts = duration.split("M");
+		var minutes = parts[0];
+		var seconds = parts[1];
+		seconds = seconds.replace("S","");
+		
+		minutes = parseInt(minutes);
+		seconds = parseInt(seconds);
+		
+		console.log("Video duration: " + minutes + " minutes and " + seconds + " seconds");
+		
+		length = minutes*60 + seconds;
+	}
 	endTime = convertTimeToSeconds(endTime);
 	
 	if(length < endTime) {
