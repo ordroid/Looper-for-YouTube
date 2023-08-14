@@ -85,6 +85,7 @@ function convertTimeToSeconds(time) {
 }
 
 function getVideoIdFromURL(url) {
+	// Regular expression pattern for the format of a YouTube video ID 
 	var videoIdRegex = /v=[^&#]+/;
 	var exec = videoIdRegex.exec(String(url));
 	var videoID = String(exec).replace("v=","");
@@ -92,6 +93,7 @@ function getVideoIdFromURL(url) {
 }
 
 function validateTimeInVideo(data, endTime) {
+	// Validate the user input regarding the current video played
 	var duration = data["items"][0]["contentDetails"]["duration"];
 	duration = duration.replace("PT","");
 	var length;
@@ -124,6 +126,7 @@ function validateTimeInVideo(data, endTime) {
 }
 
 function performLoop(url, startTime, endTime, tab) {
+	// Get the new timed URL and start looping
 	var newLink = "https://www.youtube.com/watch?v=" + getVideoIdFromURL(url) + "&t=" + convertTimeToSeconds(startTime) + "s";
 	console.log("Start link: " + newLink);
 	var diff = convertTimeToSeconds(endTime)-convertTimeToSeconds(startTime);
@@ -132,12 +135,14 @@ function performLoop(url, startTime, endTime, tab) {
 }
 
 function performLoopAux(newLink, tab, diff) {
+	// Perform loop
 	console.log("Done waiting");
 	chrome.tabs.update(tab.id, {url: newLink});
 	performLoopAgain(newLink, tab, diff);
 }
 
 function performLoopAgain(newLink, tab, diff) {
+	// Set timeout
 	console.log("Waiting for " + diff + " seconds (+ delay of 2 seconds)");
 	delay = 1000*2;
 	myTimeout = setTimeout(function() {
